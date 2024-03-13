@@ -8,7 +8,8 @@
             {
                 Console.Clear();
 
-                Console.WriteLine("Calculadora (Básica) 03/2024");
+                Console.WriteLine("Calculadora (Básica) 03/2024\nSelecione uma das opções abaixo:\n");
+
 
                 Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Fechar.");
 
