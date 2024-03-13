@@ -10,11 +10,7 @@
 
                 Console.WriteLine("Calculadora (Básica) 03/2024");
 
-                Console.WriteLine("Digite 1 para Adicionar");
-                Console.WriteLine("Digite 2 para Subtrair");
-                Console.WriteLine("Digite 3 para Dividir");
-                Console.WriteLine("Digite 4 para Multiplicar");
-                Console.WriteLine("Digite S para sair");
+                Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Fechar.");
 
                 string operacao = Console.ReadLine();
 
@@ -22,21 +18,23 @@
                     break;
 
                 Console.WriteLine("Digite o primeiro numero");
+                
+                // refatoração pedaço de codigo (int -> double)
 
-                string primeiroNumeroString = "";
+                string primeiroNumeroString = Console.ReadLine();
 
-                primeiroNumeroString = Console.ReadLine();
-
-                int primeiroNumero = Convert.ToInt32(primeiroNumeroString);
+                double primeiroNumero = Convert.ToDouble(primeiroNumeroString);
 
                 Console.WriteLine("Digite o segundo número:");
 
                 string segundoNumeroString = Console.ReadLine();
 
-                int segundoNumero = Convert.ToInt32(segundoNumeroString);
+                double segundoNumero = Convert.ToDouble(segundoNumeroString);
 
-                int resultado = 0;
-                //criterio 4.
+                double resultado = 0.0;
+                
+                //criterio 04. refatoração (if -> switch +( 4 operações basicas))
+              
                 switch (operacao)
                 {
                     case "1":
@@ -55,15 +53,15 @@
                         break;
                     
                     case "4":
-                        Console.WriteLine("Você está Subtraindo.");
+                        Console.WriteLine("Você está Multiplicando.");
                         resultado = primeiroNumero * segundoNumero;
                         break;
                 }
 
-                Console.WriteLine("O resultado da operação é: " + resultado);
+                Console.WriteLine("O resultado da operação é: " + resultado.ToString("F2"));
 
-                string resposta = Console .ReadLine();
-
+                Console.WriteLine("Digite qualquer tecla para continuar...");
+                Console.ReadKey();
                 }
         }
     }
