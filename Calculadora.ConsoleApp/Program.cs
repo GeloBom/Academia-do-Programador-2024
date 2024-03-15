@@ -8,14 +8,23 @@
             {
                 Console.Clear();
 
-                Console.WriteLine("Calculadora (Básica) 03/2024");
+                Console.WriteLine("Calculadora (Básica) 03/2024\nSelecione uma das opções abaixo:\n");
+
 
                 Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Fechar.");
 
                 string operacao = Console.ReadLine();
 
-                if (operacao == "S")
+                if (operacao == "S" || operacao == "s")
                     break;
+
+                if (operacao != "1" && operacao!= "2" && operacao != "3" && operacao != "4" && operacao !="s" && operacao != "S" ) 
+                {
+                    Console.WriteLine("Operação invalida, Tente novamente...");
+                    Console.ReadLine();
+
+                    continue;
+                }
 
                 Console.WriteLine("Digite o primeiro numero");
                 
@@ -38,29 +47,37 @@
                 switch (operacao)
                 {
                     case "1":
-                        Console.WriteLine("Você está Somando.");
+                        Console.WriteLine("Você está Somando.\n");
                         resultado = primeiroNumero + segundoNumero;
                         break;
 
                     case "2":
-                        Console.WriteLine("Você está Subtraindo.");
+                        Console.WriteLine("Você está Subtraindo.\n");
                         resultado = primeiroNumero - segundoNumero;
                         break;
 
                     case "3":
-                        Console.WriteLine("Você está dividindo");
+                        while (segundoNumero == 0) 
+                        {
+                            Console.WriteLine("Segundo número inválido, Digite um valor maior que Zero, tente novamente!\n");
+                            
+                            Console.WriteLine("Digite o segundo número novamente\n");
+
+                            segundoNumero = Convert.ToDouble(Console.ReadLine()); 
+                        }
+                        Console.WriteLine("Você está dividindo\n");
                         resultado = primeiroNumero / segundoNumero;
                         break;
                     
                     case "4":
-                        Console.WriteLine("Você está Multiplicando.");
+                        Console.WriteLine("Você está Multiplicando.\n");
                         resultado = primeiroNumero * segundoNumero;
                         break;
                 }
 
                 Console.WriteLine("O resultado da operação é: " + resultado.ToString("F2"));
 
-                Console.WriteLine("Digite qualquer tecla para continuar...");
+                Console.WriteLine("Digite qualquer tecla para continuar...\n");
                 Console.ReadKey();
                 }
         }
