@@ -4,21 +4,29 @@
     {
         static void Main(string[] args)
         {
-             while (true) 
+            while (true)
             {
                 Console.Clear();
 
                 Console.WriteLine("Calculadora (Básica) 03/2024");
 
-                Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Fechar.");
+                Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\nS- Fechar.");
 
                 string operacao = Console.ReadLine();
 
-                if (operacao == "S")
+                if (operacao == "S" || operacao == "s")
                     break;
 
+                if (operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "S" && operacao != "s")
+                {
+                    Console.WriteLine("Operação inválida, tente novamente...");
+                    Console.ReadLine();
+
+                    continue;
+                }
+
                 Console.WriteLine("Digite o primeiro numero");
-                
+
                 // refatoração pedaço de codigo (int -> double)
 
                 string primeiroNumeroString = Console.ReadLine();
@@ -32,9 +40,9 @@
                 double segundoNumero = Convert.ToDouble(segundoNumeroString);
 
                 double resultado = 0.0;
-                
+
                 //criterio 04. refatoração (if -> switch +( 4 operações basicas))
-              
+
                 switch (operacao)
                 {
                     case "1":
@@ -51,7 +59,7 @@
                         Console.WriteLine("Você está dividindo");
                         resultado = primeiroNumero / segundoNumero;
                         break;
-                    
+
                     case "4":
                         Console.WriteLine("Você está Multiplicando.");
                         resultado = primeiroNumero * segundoNumero;
@@ -62,7 +70,7 @@
 
                 Console.WriteLine("Digite qualquer tecla para continuar...");
                 Console.ReadKey();
-                }
+            }
         }
     }
 }
