@@ -17,6 +17,11 @@
                     continue;
                 }
 
+                else if (operacao == "5")
+                {
+                    OperaçãoTabuada();
+                }
+
                 double primeiroNumero = ObterNumeroCalculo("Digite o primeiro número:");
                 double segundoNumero = ObterNumeroCalculo("Digite o segundo número:");
 
@@ -25,11 +30,12 @@
             }
         }
 
+        #region Funções
         static string MostrarMenu()
         {
             Console.Clear();
             Console.WriteLine("Calculadora (Básica) 03/2024\nSelecione uma das opções abaixo:\n");
-            Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Fechar.");
+            Console.WriteLine("1- Adição.\n2- Subtração.\n3- Divisão.\n4- Multiplicação.\n5- Gerar a tabuada.\nS- Fechar.");
             return Console.ReadLine();
         }
 
@@ -43,7 +49,7 @@
             return opcao != "1" && opcao != "2" && opcao != "3" && opcao != "4" && opcao != "5";
         }
 
-        private static void ExibirMensagemErro()
+        static void ExibirMensagemErro()
         {
             Console.WriteLine("Operação inválida, tente novamente...");
             Console.ReadLine();
@@ -89,19 +95,31 @@
 
                 case "4":
                     Console.WriteLine("Você está Multiplicando.");
-
-                    if (primeiroNumero == 0)
-                    {
-                        Console.WriteLine("Insira um número válido maior que 0. Tecle uma tecla para tentar novamente...");
-                        Console.ReadKey();
-                        break;
-                    }
-
                     resultado = primeiroNumero * segundoNumero;
                     break;
             }
-
             return resultado;
+        }
+
+        static void OperaçãoTabuada()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Digite um numero inteiro: ");
+            int numeroDigitado = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Tabuada do numero {numeroDigitado}");
+
+            Console.WriteLine();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"Número digitado: {numeroDigitado} x {i} = {numeroDigitado * i}");
+            }
+
+            Console.ReadLine();
         }
 
         static void ExibirResultado(double resultado)
@@ -110,5 +128,6 @@
             Console.WriteLine("Digite qualquer tecla para continuar...");
             Console.ReadKey();
         }
+        #endregion
     }
 }
